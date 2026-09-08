@@ -1,9 +1,9 @@
 "use client";
 
 import type { ComponentProps, ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
-type MotionSectionProps = Omit<ComponentProps<typeof motion.div>, "children"> & {
+type MotionSectionProps = Omit<ComponentProps<typeof m.div>, "children"> & {
   /** Anima já na primeira renderização (ex.: Hero) em vez de esperar rolar até a viewport. */
   animateOnLoad?: boolean;
   children?: ReactNode;
@@ -37,7 +37,7 @@ export function MotionSection({
   }
 
   return (
-    <motion.div
+    <m.div
       initial={HIDDEN}
       {...(animateOnLoad
         ? { animate: VISIBLE }
@@ -46,6 +46,6 @@ export function MotionSection({
       {...props}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

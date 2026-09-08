@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Icon } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,9 @@ type AccordionProps = {
   items: FaqItem[];
   className?: string;
 };
+
+const TRANSITION = { duration: 0.2, ease: "easeOut" } as const;
+const TRANSITION_INSTANT = { duration: 0 } as const;
 
 /**
  * FAQ acessível (FR-005): usa @radix-ui/react-accordion para semântica ARIA e
@@ -60,20 +63,16 @@ export function Accordion({ items, className }: AccordionProps) {
               </AccordionPrimitive.Trigger>
             </AccordionPrimitive.Header>
             <AccordionPrimitive.Content forceMount asChild>
-              <motion.div
+              <m.div
                 initial={false}
                 animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                transition={
-                  shouldReduceMotion
-                    ? { duration: 0 }
-                    : { duration: 0.2, ease: "easeOut" }
-                }
+                transition={shouldReduceMotion ? TRANSITION_INSTANT : TRANSITION}
                 className="overflow-hidden"
               >
                 <p className="pb-4 text-zinc-600 dark:text-zinc-400">
                   {item.answer}
                 </p>
-              </motion.div>
+              </m.div>
             </AccordionPrimitive.Content>
           </AccordionPrimitive.Item>
         );

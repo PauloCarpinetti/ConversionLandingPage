@@ -126,6 +126,20 @@ Projeto único (frontend-only) na raiz de `conversion_page/`, seguindo a estrutu
 
 ---
 
+## Phase 8: Convergence
+
+**Purpose**: Fecha lacunas entre spec/plan/tasks e o estado atual do código, identificadas por `/speckit-converge` após a conclusão da Phase 7
+
+- [X] T027 Otimizado: `components/ui/accordion.tsx` e `components/ui/carousel.tsx` já eram code-splitted via `next/dynamic` (`app/page.tsx`); adicionado `components/ui/motion-provider.tsx` com `LazyMotion`/`domAnimation`/`m` (em vez do `motion` completo) em `motion-section.tsx` e `accordion.tsx`. Resultado medido em build de produção, comparando igual-para-igual (mesma config de GA em ambas as medições): **Performance 65 → 67**, com melhorias mais nítidas em métricas individuais (First Contentful Paint 3.5s → 0.8s; Speed Index 4.8s → 2.5s). O diagnóstico do Lighthouse aponta o script real do Google Analytics (rede/parsing do `gtag.js`, ~700ms de long tasks) como o maior custo remanescente — não há como remover isso sem abrir mão do FR-008/009. Meta de >90 **não atingida** neste sandbox local; como já registrado em T023, a constituição pede a checagem "antes de cada deploy de produção", então a medição autoritativa é a de um deploy real na Vercel (CDN/edge), não a de localhost numa VM compartilhada e sob o throttling móvel padrão do Lighthouse per Constitution I (contradicts)
+- [X] T028 Configurados metadados reais em `app/layout.tsx` via Next.js Metadata API: `title` (com template), `description`, `keywords` e `openGraph` (title/description/type/locale), substituindo o placeholder `"Create Next App"` do scaffold per Constitution III (missing)
+- [ ] T029 **Requer verificação humana** — não pode ser completada de forma confiável neste agente automatizado (ver nota abaixo). Abrir `http://localhost:3000` num navegador comum, focar uma pergunta do FAQ via Tab e pressionar Enter/Espaço: a resposta deve abrir/fechar per SC-002 (partial)
+- [ ] T030 **Requer verificação humana** — não pode ser completada de forma confiável neste agente automatizado (ver nota abaixo). Em um celular real (ou emulador touch de verdade) com iOS Safari e Android Chrome, arrastar a seção de depoimentos e confirmar que desliza sem gerar rolagem horizontal na página per SC-005 (partial)
+- [ ] T031 **Requer verificação humana** — não pode ser completada de forma confiável neste agente automatizado (ver nota abaixo). No DevTools do navegador (aba Network), bloquear a URL do chunk do `framer-motion`/`motion-provider`, recarregar a página e confirmar que a Hero, o FAQ e o CTA do WhatsApp continuam visíveis e funcionais, só sem animação per FR-011 (partial)
+
+> **Nota sobre T029–T031**: durante a implementação, a aba do Browser pane deste ambiente automatizado ficou com `document.visibilityState: "hidden"` (o Chrome pausa animações por rAF/WAAPI em abas não exibidas) e a simulação de gestos de arrastar via automação travou por essa mesma razão (ver histórico desta sessão). Ativação por teclado via automação também não foi reconhecida pelo Radix nessa sessão, apesar do foco estar correto. São três verificações que só um navegador/dispositivo real, com um humano, resolve em poucos minutos — por isso ficaram marcadas como pendentes em vez de "concluídas" com uma confirmação que não é confiável.
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
