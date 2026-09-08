@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Agent credentials/local state (per Spec Kit security notice)
+.claude/settings.local.json
+
+# OS/editor
+.DS_Store
+Thumbs.db
