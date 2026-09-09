@@ -14,4 +14,5 @@ Refatoração do componente para utilizar CSS Grid nativo aliado ao Tailwind, se
 
 ### Oportunidade Futura
 
-Para os próximos projetos comerciais de pequeno porte, criar um template base ("boilerplate") no GitHub com o setup do Next.js + Tailwind + Componentes base de SEO já configurados, acelerando o tempo da primeira entrega.
+- Para os próximos projetos comerciais de pequeno porte, criar um template base ("boilerplate") no GitHub com o setup do Next.js + Tailwind + Componentes base de SEO já configurados, acelerando o tempo da primeira entrega.
+- O relatório do PageSpeed Insights em produção (Performance 94/100, já acima da meta de >90) apontou dois diagnósticos não bloqueantes: ~92 KiB de JavaScript não usado no carregamento inicial (provável origem: bibliotecas de animação/carrossel) e uma tarefa longa na thread principal. Nenhum dos dois tira pontos da nota atual, mas ficam registrados como possível refinamento futuro (ex.: code-splitting mais agressivo dessas libs) caso o projeto precise espremer ainda mais performance.
