@@ -19,7 +19,14 @@ const SITE_TITLE = "Clínica Odontológica";
 const SITE_DESCRIPTION =
   "Cuide do seu sorriso com atendimento humanizado e equipamentos modernos. Agende sua consulta pelo WhatsApp em poucos cliques.";
 
+// Necessário para o Next.js resolver a URL absoluta de app/opengraph-image.tsx
+// (og:image); sem isso, o link do og:image aponta para localhost mesmo em
+// produção. Definir NEXT_PUBLIC_SITE_URL no deploy real (Vercel) quando o
+// domínio final estiver definido — ver .env.local.example.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: SITE_TITLE,
     template: `%s | ${SITE_TITLE}`,
