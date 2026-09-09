@@ -21,9 +21,15 @@ const SITE_DESCRIPTION =
 
 // Necessário para o Next.js resolver a URL absoluta de app/opengraph-image.tsx
 // (og:image); sem isso, o link do og:image aponta para localhost mesmo em
-// produção. Definir NEXT_PUBLIC_SITE_URL no deploy real (Vercel) quando o
-// domínio final estiver definido — ver .env.local.example.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+// produção. Ordem de prioridade: NEXT_PUBLIC_SITE_URL (override manual, útil
+// quando um domínio próprio for configurado) → VERCEL_URL (injetada
+// automaticamente pela Vercel em todo deploy, sem configuração manual) →
+// localhost (fallback local).
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
