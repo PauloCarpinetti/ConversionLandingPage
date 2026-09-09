@@ -103,10 +103,10 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 
 **Purpose**: Validações finais que atravessam todas as histórias
 
-- [ ] T010 [P] Confirmar no painel da Vercel que deploys anteriores ficam disponíveis para reverter em caso de falha de uma nova build (FR-007, research.md #5) — não é necessário forçar uma falha de propósito, apenas confirmar que o histórico de deploys existe e é reversível
-- [ ] T011 [P] Confirmar que a ausência de uma variável de ambiente opcional (ex.: `NEXT_PUBLIC_GA_ID` não configurada) não quebra a página em produção (FR-008) — mesmo comportamento já garantido em `001-project-foundation`, reconfirmado aqui no ambiente real
-- [ ] T012 Registrar a URL pública final em `docs/termo-aceite.md` (raiz do repositório), marcando o critério "Link de produção na Vercel ativo" do Termo de Aceite
-- [ ] T013 Conferir esta fase contra `docs/plano-qualidade.md` e o restante do `docs/termo-aceite.md` (raiz do repositório) — última checagem antes da entrega formal do projeto (Fase 4 do cronograma, `docs/TAP.md`)
+- [X] T010 [P] Confirmar no painel da Vercel que deploys anteriores ficam disponíveis para reverter em caso de falha de uma nova build (FR-007, research.md #5) — não é necessário forçar uma falha de propósito, apenas confirmar que o histórico de deploys existe e é reversível. Confirmado pelo usuário: histórico de deploys visível no painel, com opção de reverter/promover
+- [X] T011 [P] Confirmar que a ausência de uma variável de ambiente opcional (ex.: `NEXT_PUBLIC_GA_ID` não configurada) não quebra a página em produção (FR-008) — mesmo comportamento já garantido em `001-project-foundation`, reconfirmado aqui no ambiente real. Confirmado via inspeção do site em produção: `NEXT_PUBLIC_GA_ID` não configurada, `<GoogleAnalytics>` corretamente não montado (nenhum script `googletagmanager` carregado), página renderiza normalmente
+- [X] T012 Registrar a URL pública final em `docs/termo-aceite.md` (raiz do repositório), marcando o critério "Link de produção na Vercel ativo" do Termo de Aceite. Feito: URL `https://conversion-landing-page-psi.vercel.app` e o relatório do PageSpeed Insights (Performance 94, Accessibility 100) registrados em `docs/termo-aceite.md` e no espelho em `README.md`
+- [X] T013 Conferir esta fase contra `docs/plano-qualidade.md` e o restante do `docs/termo-aceite.md` (raiz do repositório) — última checagem antes da entrega formal do projeto (Fase 4 do cronograma, `docs/TAP.md`). Checklist de `docs/plano-qualidade.md` (e espelho em `README.md`) atualizado: contraste de cores ✅ e mensagem do WhatsApp ✅ marcados; imagens WebP/AVIF e links âncora marcados **N/A** (não se aplicam a este projeto); teste em dispositivos reais marcado **parcial** (Android Chrome confirmado; iOS Safari não testado)
 
 ---
 

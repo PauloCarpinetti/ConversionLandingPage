@@ -217,11 +217,11 @@ Mostrar como você garante a qualidade do que entrega é um grande diferencial c
 
 #### Checklist de Entrega
 
-- [ ] As imagens estão em formato WebP/AVIF via `next/image`?
-- [ ] O contraste de cores das fontes foi aprovado em validadores de acessibilidade?
-- [ ] Os links âncora (navegação suave) funcionam corretamente entre as seções?
-- [ ] A mensagem padrão do WhatsApp contém a origem (ex: "Olá, vim pelo site da clínica e gostaria de agendar...")?
-- [ ] Teste em dispositivos reais (iOS Safari e Android Chrome) concluído?
+- [ ] As imagens estão em formato WebP/AVIF via `next/image`? — **N/A**: a landing page não usa fotos reais/`next/image`; a única imagem gerada (`opengraph-image`) é um PNG via `next/og`, convenção própria do Next.js
+- [x] O contraste de cores das fontes foi aprovado em validadores de acessibilidade? — confirmado: Lighthouse/PageSpeed Insights Accessibility 100/100 em produção (`004-production-deploy` T006)
+- [ ] Os links âncora (navegação suave) funcionam corretamente entre as seções? — **N/A**: esta landing page não implementa navegação âncora entre seções
+- [x] A mensagem padrão do WhatsApp contém a origem (ex: "Olá, vim pelo site da clínica e gostaria de agendar...")? — confirmado em produção, link real: `wa.me/...?text=Olá,%20vim%20pelo%20site%20da%20clínica...`
+- [ ] Teste em dispositivos reais (iOS Safari e Android Chrome) concluído? — **Parcial**: confirmado em Android Chrome (CTA do WhatsApp e card de compartilhamento, `004-production-deploy` T005/T007/T008); iOS Safari não testado
 
 ---
 
@@ -247,6 +247,6 @@ Para os próximos projetos comerciais de pequeno porte, criar um template base (
 
 Finalize o projeto documentando a entrega formal. No portfólio, isso pode ser traduzido como a comprovação de que o projeto atingiu os objetivos.
 
-- **Entregável:** Link de produção na Vercel ativo.
+- **Entregável:** Link de produção na Vercel ativo — [conversion-landing-page-psi.vercel.app](https://conversion-landing-page-psi.vercel.app).
 - **Validação:** Cliente confirmou o recebimento de mensagens no WhatsApp através da Landing Page.
-- **Métricas de Sucesso Atingidas:** [(https://pagespeed.web.dev/analysis/https-conversion-landing-page-psi-vercel-app/zl9sq2ye0x?form_factor=mobile)].
+- **Métricas de Sucesso Atingidas:** Performance 94/100 e Accessibility 100/100 (mobile) — [relatório PageSpeed Insights](https://pagespeed.web.dev/analysis/https-conversion-landing-page-psi-vercel-app/zl9sq2ye0x?form_factor=mobile).
