@@ -26,6 +26,23 @@
 - **Alternatives considered**: exigir que o usuário sempre configure `NEXT_PUBLIC_SITE_URL`
   manualmente antes do primeiro deploy — rejeitado por ser um passo manual evitável e propenso a
   erro (foi exatamente a falta desse valor que já causou um bug real em `003-social-share-card`).
+- **Achado pós-deploy (T006/T008, 2026-09-09)**: o fallback via `VERCEL_URL` funciona tecnicamente,
+  mas produz um `og:image` quebrado em produção. `VERCEL_URL` resolve para a URL específica daquele
+  deployment (padrão `<projeto>-<hash>-<time>.vercel.app`), e a Vercel protege essa URL por padrão
+  com "Deployment Protection" (Vercel Authentication) — só o domínio "alias" estável do projeto
+  (ex.: `conversion-landing-page-psi.vercel.app`) fica de fato público. Resultado: o `og:image`
+  absoluto montado a partir de `VERCEL_URL` aponta para uma URL que retorna a tela de login da
+  Vercel para qualquer visitante (incluindo os crawlers do WhatsApp/Instagram/Facebook que buscam a
+  imagem do card) — confirmado manualmente: a URL via `VERCEL_URL` redireciona para login, enquanto
+  a mesma rota no domínio alias (`.../opengraph-image`) carrega a imagem normalmente.
+  **Correção**: `NEXT_PUBLIC_SITE_URL` deixa de ser "opcional, só quando houver domínio próprio" e
+  passa a ser **obrigatória em produção mesmo sem domínio próprio**, apontando para o domínio alias
+  público (ex.: `https://conversion-landing-page-psi.vercel.app`) — já que ele tem prioridade sobre
+  `VERCEL_URL` no fallback implementado. `VERCEL_URL` continua útil apenas como rede de segurança
+  para Preview Deployments sem essa variável configurada.
+  **Status**: corrigido e reverificado em 2026-09-09 — `NEXT_PUBLIC_SITE_URL` configurada no
+  ambiente Production, redeploy disparado; `og:image` confirmado resolvendo para o domínio alias
+  público e carregando a imagem corretamente (sem tela de login).
 
 ## 3. Arquivo de configuração da Vercel
 

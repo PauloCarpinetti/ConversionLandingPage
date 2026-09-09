@@ -34,9 +34,9 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 **⚠️ CRITICAL**: Nenhuma história pode começar antes desta fase estar completa
 
 - [X] T001 [P] Atualizar `conversion_page/app/layout.tsx`: `metadataBase` com fallback `NEXT_PUBLIC_SITE_URL` → `https://${VERCEL_URL}` → `http://localhost:3000` (research.md #2)
-- [ ] T002 **Requer ação humana** — criar o projeto na Vercel importando o repositório `PauloCarpinetti/ConversionLandingPage`, com **Root Directory = `conversion_page`** (research.md #1); isso dispara um primeiro deploy automático (depende de T001, per `quickstart.md` Passo 1)
-- [ ] T003 **Requer ação humana** — configurar `NEXT_PUBLIC_WHATSAPP_NUMBER` (número real da clínica) e, se já existir, `NEXT_PUBLIC_GA_ID` no ambiente "Production" do projeto na Vercel (FR-003), per `quickstart.md` Passo 2 (depende de T002)
-- [ ] T004 **Requer ação humana** — disparar um redeploy (ou aguardar o automático) para que a publicação reflita o código de T001 e as variáveis de T003; anotar a URL pública atribuída, per `quickstart.md` Passo 3 (depende de T003)
+- [X] T002 **Requer ação humana** — criar o projeto na Vercel importando o repositório `PauloCarpinetti/ConversionLandingPage`, com **Root Directory = `conversion_page`** (research.md #1); isso dispara um primeiro deploy automático (depende de T001, per `quickstart.md` Passo 1). Confirmado: URL pública ativa em `https://conversion-landing-page-psi.vercel.app`
+- [X] T003 **Requer ação humana** — configurar `NEXT_PUBLIC_WHATSAPP_NUMBER` (número real da clínica) e, se já existir, `NEXT_PUBLIC_GA_ID` no ambiente "Production" do projeto na Vercel (FR-003), per `quickstart.md` Passo 2 (depende de T002). `NEXT_PUBLIC_WHATSAPP_NUMBER` confirmado (CTA aponta para `wa.me/55...` real). `NEXT_PUBLIC_SITE_URL=https://conversion-landing-page-psi.vercel.app` configurado como correção do achado pós-deploy (research.md #2)
+- [X] T004 **Requer ação humana** — disparar um redeploy (ou aguardar o automático) para que a publicação reflita o código de T001 e as variáveis de T003; anotar a URL pública atribuída, per `quickstart.md` Passo 3 (depende de T003). Redeploy confirmado: `og:image` agora resolve para `https://conversion-landing-page-psi.vercel.app/opengraph-image` e a imagem carrega corretamente (verificado via screenshot — sem tela de login)
 
 **Checkpoint**: Site publicado numa URL pública real — as histórias de usuário podem ser validadas
 
@@ -64,7 +64,7 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 
 ### Implementation for User Story 2
 
-- [ ] T006 [US2] Rodar `npx lighthouse <URL pública> --view` e registrar as pontuações de Performance (meta: >90, SC-002) e Accessibility (meta: >95, SC-003); comparar com as medições em sandbox de `002-mobile-first-sections` (T024) e `003-social-share-card` (T007), per `quickstart.md` cenário 2 (depende de T004)
+- [X] T006 [US2] Rodado via PageSpeed Insights (mobile) contra `https://conversion-landing-page-psi.vercel.app/`: **Performance 94/100** (meta >90, SC-002 PASS), **Accessibility 100/100** (meta >95, SC-003 PASS), Best Practices 100/100, SEO 100/100. Comparado com as medições em sandbox: `002-mobile-first-sections` T024 tinha Performance 58/100 e `003-social-share-card` T007 tinha 61/100 — ambas abaixo da meta, com a resolução deliberadamente adiada para o ambiente real de produção (per notas dessas tasks). O ambiente real da Vercel (CDN/edge, build de produção do Next.js) reverteu esse déficit e bateu a meta com folga, fechando a pendência
 
 **Checkpoint**: Neste ponto, as User Stories 1 e 2 devem estar validadas de forma independente
 
@@ -79,7 +79,7 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 ### Implementation for User Story 3
 
 - [ ] T007 [US3] **Requer ação humana** — em um celular real, abrir a URL pública e clicar no CTA do WhatsApp; confirmar que o WhatsApp abre com a mensagem pré-formatada (SC-004), per `quickstart.md` cenário 3 (depende de T004)
-- [ ] T008 [US3] **Requer ação humana** — compartilhar a URL pública numa conversa real do WhatsApp (e, se possível, no Instagram/Facebook) e confirmar o card de pré-visualização (imagem, título, resumo) — fecha a pendência deixada em `003-social-share-card` T003 (SC-005), per `quickstart.md` cenário 3 (depende de T004)
+- [ ] T008 [US3] **Requer ação humana** — compartilhar a URL pública numa conversa real do WhatsApp (e, se possível, no Instagram/Facebook) e confirmar o card de pré-visualização (imagem, título, resumo) — fecha a pendência deixada em `003-social-share-card` T003 (SC-005), per `quickstart.md` cenário 3 (depende de T004). Bloqueio de `og:image` (research.md #2) já corrigido e reverificado via navegador (imagem carrega sem tela de login); falta apenas a confirmação humana no app real do WhatsApp/Instagram
 
 **Checkpoint**: Neste ponto, as User Stories 1, 2 e 3 (todo o escopo P1) devem estar validadas de forma independente
 
