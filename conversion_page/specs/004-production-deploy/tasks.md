@@ -93,7 +93,7 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 
 ### Implementation for User Story 4
 
-- [ ] T009 [US4] Fazer um pequeno commit de teste na branch principal (ex.: um ajuste de texto) e confirmar que a URL pública reflete a mudança em poucos minutos, sem nenhuma ação manual além do `git push` (SC-006, FR-002), per `quickstart.md` cenário 4 (depende de T004)
+- [X] T009 [US4] Fazer um pequeno commit de teste na branch principal (ex.: um ajuste de texto) e confirmar que a URL pública reflete a mudança em poucos minutos, sem nenhuma ação manual além do `git push` (SC-006, FR-002), per `quickstart.md` cenário 4 (depende de T004). Confirmado pelo usuário: commit `8044f46` (link do PageSpeed Insights no README) disparou um novo deploy automático no painel da Vercel, sem passo manual além do `git push`
 
 **Checkpoint**: Todas as histórias de usuário devem agora estar validadas de forma independente
 
