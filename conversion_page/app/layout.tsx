@@ -23,7 +23,7 @@ const SITE_DESCRIPTION =
 // (og:image); sem isso, o link do og:image aponta para localhost mesmo em
 // produção. Definir NEXT_PUBLIC_SITE_URL no deploy real (Vercel) quando o
 // domínio final estiver definido — ver .env.local.example.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
