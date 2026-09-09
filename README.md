@@ -249,4 +249,4 @@ Finalize o projeto documentando a entrega formal. No portfólio, isso pode ser t
 
 - **Entregável:** Link de produção na Vercel ativo.
 - **Validação:** Cliente confirmou o recebimento de mensagens no WhatsApp através da Landing Page.
-- **Métricas de Sucesso Atingidas:** [Insira um print do relatório do Google Lighthouse com as notas verdes aqui].
+- **Métricas de Sucesso Atingidas:** [(https://pagespeed.web.dev/analysis/https-conversion-landing-page-psi-vercel-app/zl9sq2ye0x?form_factor=mobile)].
