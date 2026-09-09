@@ -50,7 +50,7 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 
 ### Implementation for User Story 1
 
-- [ ] T005 [US1] **Requer ação humana** — abrir a URL pública a partir de uma rede diferente (ex.: dados móveis) e confirmar que todas as seções (Hero até FAQ) e o CTA do WhatsApp carregam corretamente (SC-001), per `quickstart.md` cenário 1 (depende de T004)
+- [X] T005 [US1] **Requer ação humana** — abrir a URL pública a partir de uma rede diferente (ex.: dados móveis) e confirmar que todas as seções (Hero até FAQ) e o CTA do WhatsApp carregam corretamente (SC-001), per `quickstart.md` cenário 1 (depende de T004). Confirmado pelo usuário
 
 **Checkpoint**: Neste ponto, a User Story 1 deve estar validada de forma independente
 
@@ -78,8 +78,8 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 
 ### Implementation for User Story 3
 
-- [ ] T007 [US3] **Requer ação humana** — em um celular real, abrir a URL pública e clicar no CTA do WhatsApp; confirmar que o WhatsApp abre com a mensagem pré-formatada (SC-004), per `quickstart.md` cenário 3 (depende de T004)
-- [ ] T008 [US3] **Requer ação humana** — compartilhar a URL pública numa conversa real do WhatsApp (e, se possível, no Instagram/Facebook) e confirmar o card de pré-visualização (imagem, título, resumo) — fecha a pendência deixada em `003-social-share-card` T003 (SC-005), per `quickstart.md` cenário 3 (depende de T004). Bloqueio de `og:image` (research.md #2) já corrigido e reverificado via navegador (imagem carrega sem tela de login); falta apenas a confirmação humana no app real do WhatsApp/Instagram
+- [X] T007 [US3] **Requer ação humana** — em um celular real, abrir a URL pública e clicar no CTA do WhatsApp; confirmar que o WhatsApp abre com a mensagem pré-formatada (SC-004), per `quickstart.md` cenário 3 (depende de T004). Confirmado pelo usuário
+- [X] T008 [US3] **Requer ação humana** — compartilhar a URL pública numa conversa real do WhatsApp (e, se possível, no Instagram/Facebook) e confirmar o card de pré-visualização (imagem, título, resumo) — fecha a pendência deixada em `003-social-share-card` T003 (SC-005), per `quickstart.md` cenário 3 (depende de T004). Confirmado pelo usuário: card apareceu corretamente (imagem, título e resumo), validando também a correção do achado em research.md #2
 
 **Checkpoint**: Neste ponto, as User Stories 1, 2 e 3 (todo o escopo P1) devem estar validadas de forma independente
 
