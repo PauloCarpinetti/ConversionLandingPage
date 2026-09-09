@@ -81,3 +81,11 @@ Mesmo projeto único das features anteriores, na raiz de `conversion_page/`: ape
 - [P] = arquivos diferentes, sem dependências pendentes
 - Não há tasks de teste automatizado nesta feature; a validação é manual, guiada por `quickstart.md`, tags HTML, uma ferramenta de depuração de Open Graph e Lighthouse
 - Fazer commit após cada task ou grupo lógico de tasks
+
+---
+
+## Phase 3: Convergence
+
+**Purpose**: Fecha lacunas entre spec/plan/tasks e o estado atual do código, identificadas por `/speckit-converge` após um bugfix reportado pelo usuário em produção local
+
+- [X] T010 Validado: com `.env.local` real do usuário contendo `NEXT_PUBLIC_SITE_URL=` vazio (mesmo formato de `.env.local.example`, sem preencher), a página respondeu 200 (antes: 500) e o CTA do WhatsApp renderizou e funcionou corretamente, confirmado pelo próprio usuário — reproduz e fecha o cenário exato do bug corrigido em `app/layout.tsx` (`??` trocado por `||`) per plan.md (partial)
